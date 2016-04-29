@@ -27,6 +27,7 @@ type Product struct {
 	CategoryID      uint             `l10n:"sync"`
 	Category        Category         `l10n:"sync"`
 	Collections     []Collection     `l10n:"sync" gorm:"many2many:product_collections"`
+	RelatedProducts []Product        `l10n:"sync" gorm:"many2many:related_products:ForeignKey:product_id;AssociationForeignKey:related_product_id;"`
 	MadeCountry     string           `l10n:"sync"`
 	Price           float32          `l10n:"sync"`
 	Description     string           `sql:"size:2000"`
